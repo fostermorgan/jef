@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS transactions(
   memo VARCHAR(256),
   transactionTotal DECIMAL(13, 2) NOT NULL,
   PRIMARY KEY(transactionID),
-  FOREIGN KEY(transactions_to_categories_ID) REFERENCES transactions_to_categories(transactions_to_categories_ID),
-  FOREIGN KEY(payeeID) REFERENCES payees(payeeID),
-  FOREIGN KEY(userID) REFERENCES users(userID),
-  FOREIGN KEY(typeID) REFERENCES transactionTypes(typeID)
+  -- FOREIGN KEY(transactions_to_categories_ID) REFERENCES transactions_to_categories(transactions_to_categories_ID),
+  -- FOREIGN KEY(payeeID) REFERENCES payees(payeeID),
+  -- FOREIGN KEY(userID) REFERENCES users(userID),
+  -- FOREIGN KEY(typeID) REFERENCES transactionTypes(typeID)
 );
 
 CREATE TABLE IF NOT EXISTS transactionTypes(
@@ -46,9 +46,9 @@ CREATE TABLE IF NOT EXISTS transactions_to_categories(
   discription VARCHAR(256),
   amount DECIMAL(13, 2) NOT NULL,
   PRIMARY KEY(transactions_to_categories_ID),
-  FOREIGN KEY(transactionID) REFERENCES transactions(transactionID),
-  FOREIGN KEY(categoryID) REFERENCES categories(categoryID),
-  FOREIGN KEY(classID) REFERENCES classes(classID)
+  -- FOREIGN KEY(transactionID) REFERENCES transactions(transactionID),
+  -- FOREIGN KEY(categoryID) REFERENCES categories(categoryID),
+  -- FOREIGN KEY(classID) REFERENCES classes(classID)
 );
 
 CREATE TABLE IF NOT EXISTS categories(
