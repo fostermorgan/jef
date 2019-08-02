@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS transactions(
   checkNumber INT,
   memo VARCHAR(256),
   transactionTotal DECIMAL(13, 2) NOT NULL,
+  isVoid BOOLEAN NOT NULL,
   PRIMARY KEY(transactionID),
   -- FOREIGN KEY(transactions_to_categories_ID) REFERENCES transactions_to_categories(transactions_to_categories_ID),
   -- FOREIGN KEY(payeeID) REFERENCES payees(payeeID),
