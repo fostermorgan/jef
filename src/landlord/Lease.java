@@ -1,5 +1,7 @@
 package landlord;
 
+import java.util.Date;
+
 public class Lease {
 
     private int leaseID;
