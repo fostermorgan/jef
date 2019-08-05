@@ -1,4 +1,4 @@
-package landlord;
+package model.landlord;
 
 public class Lease {
 }

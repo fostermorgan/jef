@@ -1,4 +1,4 @@
-package finance;
+package model.finance;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package finance;
+package model.finance;
 
 public class TransactionToCategory {
 
