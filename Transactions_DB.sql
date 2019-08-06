@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS payees(
   PRIMARY KEY(payeeID)
 );
 
-CREATE TABLE IF NOT EXISTS transactions_to_categories(
+CREATE TABLE IF NOT EXISTS transactionsCategories(
   transactions_to_categories_ID INT AUTO_INCREMENT NOT NULL,
   transactionsID INT NOT NULL,
   categoryID INT NOT NULL,
