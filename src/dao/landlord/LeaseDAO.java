@@ -1,4 +1,4 @@
 package dao.landlord;
 
-public class LeaseDAO {
+public class LeaseDAO extends LandlordDAO {
 }

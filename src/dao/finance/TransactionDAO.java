@@ -1,4 +1,4 @@
 package dao.finance;
 
-public class TransactionDAO {
+public class TransactionDAO extends FinancialDAO {
 }
