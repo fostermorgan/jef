@@ -1,7 +1,6 @@
 package database.landlord;
 
-public class PropertyDAO {
-
+public class PropertyDAO extends LandlordDAO {
     protected String table = "property";
 
 }
