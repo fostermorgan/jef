@@ -25,8 +25,9 @@ public abstract class DAO {
 
     protected Connection loadConnection(){
         try{
-            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database,
-                    username, password);
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/landlorddb", "root", "root");
+            //return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database,
+                   // username, password);
         }catch(Exception e){
             e.printStackTrace();
         }
