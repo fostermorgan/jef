@@ -1,10 +1,12 @@
+CREATE DATABASE Property_DB;
+
 CREATE TABLE IF NOT EXISTS lease(
   leaseID INT NOT NULL AUTO_INCREMENT,
-  propertyID INT NOT NULL,
   startDate DATE NOT NULL,
   endDate DATE,
   rentDueDate DATE NOT NULL,
   rentAmount DECIMAL(13,2) NOT NULL,
+  isActive BOOLEAN NOT NULL,
   PRIMARY KEY(leaseID)
 );
 
@@ -17,16 +19,6 @@ CREATE TABLE IF NOT EXISTS renter(
   PRIMARY KEY(renterID)
 );
 
-CREATE TABLE IF NOT EXISTS renterLease(
-  renterID INT NOT NULL,
-  leaseID INT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS propertyLease(
-  propertyID INT NOT NULL,
-  leaseID INT NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS property(
   propertyID INT NOT NULL AUTO_INCREMENT,
   propertyName VARCHAR(256) NOT NULL,
@@ -36,3 +28,32 @@ CREATE TABLE IF NOT EXISTS property(
   unitNumber INT NOT NULL,
   PRIMARY KEY(propertyID)
 );
+
+CREATE TABLE IF NOT EXISTS renterLease(
+  renterID INT NOT NULL,
+  leaseID INT NOT NULL,
+  FOREIGN KEY renterID_fk (renterID) REFERENCES renter (renterID) ON DELETE RESTRICT ON UPDATE CASCADE,
+  FOREIGN KEY leaseID_fk (leaseID) REFERENCES lease (leaseID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS propertyLease(
+  propertyID INT NOT NULL,
+  leaseID INT NOT NULL,
+  FOREIGN KEY propertyID_fk (propertyID) REFERENCES property (propertyID) ON DELETE RESTRICT ON UPDATE CASCADE,
+  FOREIGN KEY leaseID_fk_property (leaseID) REFERENCES lease (leaseID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+
+DELIMITER $$
+CREATE TRIGGER activeLease
+    AFTER UPDATE ON lease
+    FOR EACH ROW
+BEGIN
+
+    IF endDate != NULL THEN
+      SET isActive = FALSE;
+    ELSE
+      SET isActive = TRUE;
+    END IF;
+END$$
+DELIMITER ;
