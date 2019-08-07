@@ -46,14 +46,14 @@ CREATE TABLE IF NOT EXISTS propertyLease(
 
 DELIMITER $$
 CREATE TRIGGER activeLease
-    AFTER UPDATE ON lease
+    BEFORE UPDATE ON lease
     FOR EACH ROW
 BEGIN
 
-    IF endDate != NULL THEN
-      SET isActive = FALSE;
+    IF (NEW.endDate IS NULL) THEN
+      SET NEW.isActive = FALSE;
     ELSE
-      SET isActive = TRUE;
+      SET NEW.isActive = TRUE;
     END IF;
 END$$
 DELIMITER ;
