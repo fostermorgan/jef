@@ -3,6 +3,7 @@ package database.finance;
 import database.DAO;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 abstract class FinancialDAO extends DAO {
 
@@ -13,5 +14,14 @@ abstract class FinancialDAO extends DAO {
     protected String port = "3306";
 
     protected Connection connection = loadConnection();
+
+    protected Connection loadConnection(){
+        try{
+            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

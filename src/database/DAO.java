@@ -9,10 +9,10 @@ public abstract class DAO {
     protected String password;
     protected String username;
     protected String host;
-    protected String database;
     protected String port;
+    protected String database;
 
-    public ResultSet queryAllInTable(){
+    public ResultSet queryAll(){
         try{
             PreparedStatement query = connection.prepareStatement("SELECT * FROM " + table);
             return query.executeQuery();
@@ -23,16 +23,7 @@ public abstract class DAO {
         return null;
     }
 
-    protected Connection loadConnection(){
-        try{
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/landlorddb", "root", "root");
-            //return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database,
-                   // username, password);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
+    abstract protected Connection loadConnection();
 
     protected String getTable(){
         return table;
