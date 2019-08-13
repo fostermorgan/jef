@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-    
+
     @RequestMapping(value="/loginVerification", method= RequestMethod.GET)
     public ModelAndView loginVerification(){
         return null;
