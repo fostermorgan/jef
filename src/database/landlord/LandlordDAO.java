@@ -17,6 +17,7 @@ abstract class LandlordDAO extends DAO {
 
     protected Connection loadConnection(){
         try{
+            Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
         }catch(Exception e){
             e.printStackTrace();

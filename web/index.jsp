@@ -19,19 +19,20 @@
 <body class="text-center">
 <%--    <h1>Simple Java Web App Demo</h1>--%>
 <%--    <p>To invoke the java servlet click <a href="MyServlet">here</a></p>--%>
-<form class="form-signin card" action="dashboard.jsp">
+<form class="form-signin card" method="POST" action="dashboard.jsp">
   <img class="mb-4" src="http://clipart-library.com/data_images/192266.gif" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Proper.Tea Portal</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
   <div class="checkbox mb-3">
     <label>
-      <input type="checkbox" value="remember-me"> Remember me
+      <input type="checkbox" value="remember-me"> Remember me (we won't actually remember you)
     </label>
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+
   <p class="mt-5 mb-3 text-muted">&copy; 2019 | jef</p>
 </form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
