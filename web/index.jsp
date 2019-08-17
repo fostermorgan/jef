@@ -19,7 +19,7 @@
 <body class="text-center">
 <%--    <h1>Simple Java Web App Demo</h1>--%>
 <%--    <p>To invoke the java servlet click <a href="MyServlet">here</a></p>--%>
-<form class="form-signin card" method="POST" action="dashboard.jsp">
+<form class="form-signin card" method="POST" action="dashboard.jsp"><%-- change action to /login to properly call controller --%>
   <img class="mb-4" src="http://clipart-library.com/data_images/192266.gif" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Proper.Tea Portal</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
