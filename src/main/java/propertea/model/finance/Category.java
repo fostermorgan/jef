@@ -1,0 +1,8 @@
+package main.java.propertea.model.finance;
+
+public class Category {
+
+    private int categoryID;
+    private String categoryName;
+
+}

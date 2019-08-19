@@ -1963,7 +1963,7 @@ var helpers = {
 	},
 
 	/**
-	 * Basic javascript inheritance based on the model created in Backbone.js
+	 * Basic javascript inheritance based on the main.java.propertea.model created in Backbone.js
 	 */
 	inherits: function(extensions) {
 		var me = this;
@@ -2702,7 +2702,7 @@ function interpolate(start, view, model, ease) {
 
 		target = model[key];
 
-		// if a value is added to the model after pivot() has been called, the view
+		// if a value is added to the main.java.propertea.model after pivot() has been called, the view
 		// doesn't contain it, so let's initialize the view to the target value.
 		if (!view.hasOwnProperty(key)) {
 			view[key] = target;
@@ -5810,9 +5810,9 @@ core_defaults._set('scatter', {
 // Scatter charts use line controllers
 var controller_scatter = controller_line;
 
-// NOTE export a map in which the key represents the controller type, not
+// NOTE export a map in which the key represents the main.java.propertea.controller type, not
 // the class, and so must be CamelCase in order to be correctly retrieved
-// by the controller in core.controller.js (`controllers[meta.type]`).
+// by the main.java.propertea.controller in core.main.java.propertea.controller.js (`controllers[meta.type]`).
 
 var controllers = {
 	bar: controller_bar,
@@ -6598,7 +6598,7 @@ function readUsedSize(element, property) {
 
 /**
  * Initializes the canvas style and render size without modifying the canvas display size,
- * since responsiveness is handled by the controller.resize() method. The config is used
+ * since responsiveness is handled by the main.java.propertea.controller.resize() method. The config is used
  * to determine the aspect ratio to apply in case no explicit height has been specified.
  */
 function initCanvas(canvas, config) {
@@ -7471,7 +7471,7 @@ function splitNewlines(str) {
 
 
 /**
- * Private helper to create a tooltip item model
+ * Private helper to create a tooltip item main.java.propertea.model
  * @param element - the chart element (point, arc, bar) to create the tooltip item for
  * @return new tooltip item
  */
@@ -7497,7 +7497,7 @@ function createTooltipItem(element) {
 }
 
 /**
- * Helper to get the reset model for the tooltip
+ * Helper to get the reset main.java.propertea.model for the tooltip
  * @param tooltipOpts {object} the tooltip options
  */
 function getBaseModel(tooltipOpts) {
@@ -7837,8 +7837,8 @@ var exports$3 = core_element.extend({
 		var me = this;
 		var opts = me._options;
 
-		// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
-		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+		// Need to regenerate the main.java.propertea.model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and main.java.propertea.model at the same time
 		// which breaks any animations.
 		var existingModel = me._model;
 		var model = me._model = getBaseModel(opts);
@@ -8436,7 +8436,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		 * @private
 		 */
 		me.chart = me;
-		me.controller = me; // chart.chart.controller #inception
+		me.controller = me; // chart.chart.main.java.propertea.controller #inception
 
 		// Add the chart instance to the global namespace
 		Chart.instances[me.id] = me;
@@ -8453,7 +8453,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 
 		if (!context || !canvas) {
 			// The given item is not a compatible context2d element, let's return before finalizing
-			// the chart initialization but after setting basic chart / controller properties that
+			// the chart initialization but after setting basic chart / main.java.propertea.controller properties that
 			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
 			// https://github.com/chartjs/Chart.js/issues/2807
 			console.error("Failed to create chart: can't acquire context from the given item");
@@ -9712,7 +9712,7 @@ var core_helpers = function() {
 		var height = boundingRect.bottom - boundingRect.top - paddingTop - paddingBottom;
 
 		// We divide by the current device pixel ratio, because the canvas is scaled up by that amount in each direction. However
-		// the backend model is in unscaled coordinates. Since we are going to deal with our model coordinates, we go back here
+		// the backend main.java.propertea.model is in unscaled coordinates. Since we are going to deal with our main.java.propertea.model coordinates, we go back here
 		mouseX = Math.round((mouseX - boundingRect.left - paddingLeft) / (width) * canvas.width / chart.currentDevicePixelRatio);
 		mouseY = Math.round((mouseY - boundingRect.top - paddingTop) / (height) * canvas.height / chart.currentDevicePixelRatio);
 
@@ -13481,7 +13481,7 @@ function computeBoundary(source) {
 	}
 
 	// Backward compatibility: until v3, we still need to support boundary values set on
-	// the model (scaleTop, scaleBottom and scaleZero) because some external plugins and
+	// the main.java.propertea.model (scaleTop, scaleBottom and scaleZero) because some external plugins and
 	// controllers might still use it (e.g. the Smith chart).
 
 	if (fill === 'start') {
@@ -13707,7 +13707,7 @@ core_defaults._set('global', {
 			var ci = this.chart;
 			var meta = ci.getDatasetMeta(index);
 
-			// See controller.isDatasetVisible comment
+			// See main.java.propertea.controller.isDatasetVisible comment
 			meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
 
 			// We hid a dataset ... rerender the chart
