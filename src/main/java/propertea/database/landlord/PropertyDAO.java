@@ -47,4 +47,18 @@ public class PropertyDAO extends LandlordDAO {
         return false;
     }
 
+    @Override
+    public Property getByID(int ID) {
+        ResultSet results;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (propertyID=?)");
+            statement.setInt(1, ID);
+            results = statement.executeQuery();
+            return new Property(results.getInt("propertyID"), results.getString("propertyName"), results.getString("streetAddress"),
+                    results.getString("city"), results.getString("zip"), results.getInt("unitNumber"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

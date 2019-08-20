@@ -9,7 +9,8 @@ public class Property {
     private String zip;
     private int unitNumber;
 
-    public Property(String propertyName, String streetAddress, String city, String zip, int unitNumber) {
+    public Property(int propertyID, String propertyName, String streetAddress, String city, String zip, int unitNumber) {
+        this.propertyID = propertyID;
         this.propertyName = propertyName;
         this.streetAddress = streetAddress;
         this.city = city;

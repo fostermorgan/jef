@@ -41,4 +41,18 @@ public class LeaseDAO extends LandlordDAO {
         return queryLeaseByActivity(false);
     }
 
+    @Override
+    public Lease getByID(int ID) {
+        ResultSet results;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (leaseID=?)");
+            statement.setInt(1, ID);
+            results = statement.executeQuery();
+            return new Lease(results.getInt("leaseID"), results.getDate("startDate"), results.getDate("endDate"), results.getDate("rentDueDate"),
+                    results.getDouble("rentAmount"), results.getBoolean("isActive"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
