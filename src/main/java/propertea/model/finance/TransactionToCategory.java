@@ -9,4 +9,12 @@ public class TransactionToCategory {
     private String description;
     private double amount;
 
+    public TransactionToCategory(int transaction_to_category_ID, int transactionID, int categoryID, int classID, String description, double amount) {
+        this.transaction_to_category_ID = transaction_to_category_ID;
+        this.transactionID = transactionID;
+        this.categoryID = categoryID;
+        this.classID = classID;
+        this.description = description;
+        this.amount = amount;
+    }
 }

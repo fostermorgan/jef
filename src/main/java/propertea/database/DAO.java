@@ -25,6 +25,8 @@ public abstract class DAO {
 
     abstract protected Connection loadConnection();
 
+    abstract public Object getByID(int ID);
+
     protected String getTable(){
         return table;
     }

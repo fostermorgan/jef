@@ -2,6 +2,7 @@ package main.java.propertea.database.finance;
 
 import main.java.propertea.model.finance.User;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,5 +36,32 @@ public class UserDAO extends FinancialDAO{
         return success;
     }
 
+    public User findUserByEmail(String email){
+        ResultSet results;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (email=?)");
+            statement.setString(1, email);
+            results = statement.executeQuery();
+            return new User(results.getInt("userID"), results.getString("email"), results.getString("password"), results.getString("role"));
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public User getByID(int ID) {
+        ResultSet results;
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (userID=?)");
+            statement.setInt(1, ID);
+            results = statement.executeQuery();
+            return new User(results.getInt("userID"), results.getString("email"), results.getString("password"), results.getString("role"));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

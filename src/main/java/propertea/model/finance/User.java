@@ -1,24 +1,21 @@
 package main.java.propertea.model.finance;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "user")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userID")
     private int userID;
 
-    @Column(name = "email", nullable = false, length = 256)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 256)
     private String password;
 
-    @Column(name = "role", nullable = false, length = 100)
     private String role;
+
+    public User(int userID, String email, String password, String role) {
+        this.userID = userID;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 
     public int getUserID() {
         return userID;

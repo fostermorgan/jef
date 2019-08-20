@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS transactions(
   transactionID INT AUTO_INCREMENT NOT NULL,
-  transactions_to_categories_ID INT NOT NULL,
+  transactionsToCategoriesID INT NOT NULL,
   payeeID INT NOT NULL,
   userID INT NOT NULL,
   typeID INT NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS transactions(
   transactionTotal DECIMAL(13, 2) NOT NULL,
   isVoid BOOLEAN NOT NULL,
   PRIMARY KEY(transactionID)
-  -- FOREIGN KEY(transactions_to_categories_ID) REFERENCES transactions_to_categories(transactions_to_categories_ID),
+  -- FOREIGN KEY(transactionsToCategoriesID) REFERENCES transactionsToCategories(transactionsToCategoriesID),
   -- FOREIGN KEY(payeeID) REFERENCES payees(payeeID),
   -- FOREIGN KEY(userID) REFERENCES users(userID),
 #   FOREIGN KEY(typeID) REFERENCES transactionTypes(typeID)
@@ -40,13 +40,13 @@ CREATE TABLE IF NOT EXISTS payees(
 );
 
 CREATE TABLE IF NOT EXISTS transactionsCategories(
-  transactions_to_categories_ID INT AUTO_INCREMENT NOT NULL,
+  transactionsToCategoriesID INT AUTO_INCREMENT NOT NULL,
   transactionsID INT NOT NULL,
   categoryID INT NOT NULL,
   classID INT NOT NULL,
-  discription VARCHAR(256),
+  description VARCHAR(256),
   amount DECIMAL(13, 2) NOT NULL,
-  PRIMARY KEY(transactions_to_categories_ID)
+  PRIMARY KEY(transactionsToCategoriesID)
   -- FOREIGN KEY(transactionID) REFERENCES transactions(transactionID),
   -- FOREIGN KEY(categoryID) REFERENCES categories(categoryID),
   -- FOREIGN KEY(classID) REFERENCES classes(classID)
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS categories(
 );
 
 
-CREATE TABLE IF NOT EXISTS classes(
-  classID INT AUTO_INCREMENT NOT NULL,
+CREATE TABLE IF NOT EXISTS classFilters(
+  classFilterID INT AUTO_INCREMENT NOT NULL,
   name varchar(256) NOT NULL,
-  PRIMARY KEY(classID)
+  PRIMARY KEY(classFilterID)
 );
