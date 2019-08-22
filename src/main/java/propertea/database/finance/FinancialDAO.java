@@ -8,9 +8,9 @@ import java.sql.DriverManager;
 
 abstract class FinancialDAO extends DAO {
 
-    protected String password = "jakerifos2019";
+    protected String password = "ProperTea";
     protected String username = "jef";
-    protected String host = "localhost";
+    protected String host = "10.8.1.37";
     protected String database = "financialDB";
     protected String port = "3306";
 
@@ -18,7 +18,7 @@ abstract class FinancialDAO extends DAO {
 
     protected Connection loadConnection(){
         try{
-            return DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
+            return DriverManager.getConnection("jdbc:mysql://" + host + "/" + database, username, password);
         }catch(Exception e){
             e.printStackTrace();
         }

@@ -18,6 +18,14 @@ public class Property {
         this.unitNumber = unitNumber;
     }
 
+    public Property(String propertyName, String streetAddress, String city, String zip, int unitNumber) {
+        this.propertyName = propertyName;
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.zip = zip;
+        this.unitNumber = unitNumber;
+    }
+
     public int getPropertyID() {
         return propertyID;
     }
