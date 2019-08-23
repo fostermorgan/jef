@@ -1,4 +1,4 @@
-package main.java.propertea.database;
+package com.jef.propertea.database;
 
 import java.sql.*;
 

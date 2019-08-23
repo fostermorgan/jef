@@ -1,4 +1,4 @@
-package main.java.propertea.model.landlord;
+package com.jef.propertea.model.landlord;
 
 import java.sql.Date;
 public class Lease {

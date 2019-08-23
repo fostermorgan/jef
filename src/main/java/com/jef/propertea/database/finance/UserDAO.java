@@ -1,6 +1,6 @@
-package main.java.propertea.database.finance;
+package com.jef.propertea.database.finance;
 
-import main.java.propertea.model.finance.User;
+import com.jef.propertea.model.finance.User;
 import org.springframework.stereotype.Component;
 
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class UserDAO extends FinancialDAO{
                 if(email.equalsIgnoreCase(emailDB)) {
                     if(password.equals(passwordDB)){
                         return new User(results.getInt("userID"), email, password, results.getString("role"));
-                        ////If the user entered values are already present in main.java.propertea.database, which means user has already registered so I will return SUCCESS message.
+                        ////If the user entered values are already present in com.jef.propertea.database, which means user has already registered so I will return SUCCESS message.
                     }
                     //User input wrong password ERROR
                 }

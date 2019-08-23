@@ -1,4 +1,4 @@
-package main.java.propertea.model.landlord;
+package com.jef.propertea.model.landlord;
 
 public class LeaseToRenter {
 

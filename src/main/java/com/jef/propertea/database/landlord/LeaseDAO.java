@@ -1,6 +1,6 @@
-package main.java.propertea.database.landlord;
+package com.jef.propertea.database.landlord;
 
-import main.java.propertea.model.landlord.Lease;
+import com.jef.propertea.model.landlord.Lease;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;

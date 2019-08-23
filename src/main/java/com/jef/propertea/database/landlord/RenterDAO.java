@@ -1,6 +1,6 @@
-package main.java.propertea.database.landlord;
+package com.jef.propertea.database.landlord;
 
-import main.java.propertea.model.landlord.Renter;
+import com.jef.propertea.model.landlord.Renter;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

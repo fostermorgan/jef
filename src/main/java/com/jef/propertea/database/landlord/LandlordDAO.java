@@ -1,6 +1,6 @@
-package main.java.propertea.database.landlord;
+package com.jef.propertea.database.landlord;
 
-import main.java.propertea.database.DAO;
+import com.jef.propertea.database.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package main.java.propertea.model.finance;
+package com.jef.propertea.model.finance;
 
 public class TransactionType {
 

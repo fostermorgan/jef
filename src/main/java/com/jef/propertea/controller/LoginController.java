@@ -1,7 +1,7 @@
 package com.jef.propertea.controller;
 
-import main.java.propertea.database.finance.UserDAO;
-import main.java.propertea.model.finance.User;
+import com.jef.propertea.database.finance.UserDAO;
+import com.jef.propertea.model.finance.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

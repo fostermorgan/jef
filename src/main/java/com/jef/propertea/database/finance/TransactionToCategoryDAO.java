@@ -1,6 +1,6 @@
-package main.java.propertea.database.finance;
+package com.jef.propertea.database.finance;
 
-import main.java.propertea.model.finance.TransactionToCategory;
+import com.jef.propertea.model.finance.TransactionToCategory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
