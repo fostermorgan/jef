@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController {
+public class LoginController{
 
     private UserDAO userDAO;
 
@@ -26,9 +26,9 @@ public class LoginController {
     }
 
 
-    @RequestMapping(name="/loginVerification", method = RequestMethod.POST)
+    @RequestMapping(value="/loginVerification", method = RequestMethod.POST)
     public void loginVerification(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("Im here");
         //changed return to void...I don't think this login controller doesn't need its own mav?
         ModelAndView mav = new ModelAndView("login");
         //find user from given email on login and store it into toFind
