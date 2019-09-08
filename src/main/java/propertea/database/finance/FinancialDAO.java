@@ -10,7 +10,7 @@ abstract class FinancialDAO extends DAO {
 
     protected String password = "ProperTea";
     protected String username = "jef";
-    protected String host = "10.8.1.37";
+    protected String host = "10.8.1.7";
     protected String database = "financialDB";
     protected String port = "3306";
 

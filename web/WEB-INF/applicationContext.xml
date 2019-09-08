@@ -9,14 +9,14 @@
 
     <bean id="financialDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbcDriver"/>
-        <property name="url" value="jdbc:mysql://10.8.1.37/financialDB"/>
+        <property name="url" value="jdbc:mysql://10.8.1.7/financialDB"/>
         <property name="username" value="jef"/>
         <property name="password" value="ProperTea"/>
     </bean>
 
     <bean id="landlordDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbcDriver"/>
-        <property name="url" value="jdbc:mysql://10.8.1.37/landlordDB"/>
+        <property name="url" value="jdbc:mysql://10.8.1.7/landlordDB"/>
         <property name="username" value="jef"/>
         <property name="password" value="ProperTea"/>
     </bean>
