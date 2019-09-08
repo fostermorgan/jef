@@ -5427,7 +5427,7 @@ function leverageNative( el, type, expectSync ) {
 		return;
 	}
 
-	// Register the main.java.propertea.controller as a special universal handler for all event namespaces
+	// Register the org.propertea.controller as a special universal handler for all event namespaces
 	dataPriv.set( el, type, false );
 	jQuery.event.add( el, type, {
 		namespace: false,
@@ -6586,7 +6586,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	// Normalize "" and auto
 	val = parseFloat( val ) || 0;
 
-	// Adjust for the element's box main.java.propertea.model
+	// Adjust for the element's box org.propertea.model
 	return ( val +
 		boxModelAdjustment(
 			elem,
