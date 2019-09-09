@@ -11,7 +11,6 @@ public class DashboardController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String dashboardGet(Model m) {
-        m.addAttribute("someAttribute", "someValue");
         return "dashboard";
     }
 
