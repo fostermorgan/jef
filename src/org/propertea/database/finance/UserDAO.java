@@ -23,7 +23,7 @@ public class UserDAO extends FinancialDAO{
                 if(email.equalsIgnoreCase(emailDB)) {
                     if(password.equals(passwordDB)){
                         return new User(results.getInt("userID"), email, password, results.getString("role"));
-                        ////If the user entered values are already present in org.propertea.database, which means user has already registered so I will return SUCCESS message.
+                        //If the user entered values are already present in org.propertea.database, which means user has already registered so I will return SUCCESS message.
                     }
                     //User input wrong password ERROR
                 }
@@ -37,6 +37,7 @@ public class UserDAO extends FinancialDAO{
     }
 
     public User findUserByEmail(String email){
+        System.out.println(email);
         ResultSet results;
         try{
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (email=?)");
@@ -48,6 +49,23 @@ public class UserDAO extends FinancialDAO{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean insertUser(User user){
+        try{
+            PreparedStatement insert = connection.prepareStatement(
+                    "INSERT INTO " + table + " (email, password, role) " +
+                            "VALUES (?, ?, ?)");
+            insert.setString(1, user.getEmail());
+            insert.setString(2, user.getPassword());
+            insert.setString(3, user.getRole());
+            insert.executeUpdate();
+            return true;
+        } catch(SQLException e){
+            System.out.println("SQL ERROR HELP");
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -63,5 +81,28 @@ public class UserDAO extends FinancialDAO{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void printAllUsers(){
+        printAll(4);
+    }
+
+    public void printAll(int colNum){
+        try{
+            PreparedStatement query = connection.prepareStatement("" +
+                    "SELECT * FROM " + table);
+            ResultSet results = query.executeQuery();
+            while(results.next()){
+                for(int i = 1; i <= colNum; i++){
+                    if(i > 1) System.out.println(", ");
+                    String columVal = results.getString(i);
+                    System.out.print(columVal + " ");
+                }
+                System.out.println();
+            }
+        } catch(SQLException e){
+            System.out.println("SQL ERROR HELP");
+            e.printStackTrace();
+        }
     }
 }

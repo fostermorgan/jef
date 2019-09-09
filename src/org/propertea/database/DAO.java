@@ -1,9 +1,6 @@
 package org.propertea.database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public abstract class DAO {
 
@@ -12,7 +9,6 @@ public abstract class DAO {
     protected String password;
     protected String username;
     protected String host;
-    protected String port;
     protected String database;
 
     public ResultSet queryAll(){
@@ -37,4 +33,6 @@ public abstract class DAO {
     protected Connection getConnection() {
         return connection;
     }
+
+
 }

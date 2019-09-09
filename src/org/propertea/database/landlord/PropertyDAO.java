@@ -10,12 +10,16 @@ public class PropertyDAO extends LandlordDAO {
     protected String table = "property";
 
     public void printAllProperties(){
+        printAll(6);
+    }
+
+    public void printAll(int colNum){
         try{
             PreparedStatement query = connection.prepareStatement("" +
                     "SELECT * FROM " + table);
             ResultSet results = query.executeQuery();
             while(results.next()){
-                for(int i = 1; i <= 6; i++){
+                for(int i = 1; i <= colNum; i++){
                     if(i > 1) System.out.println(", ");
                     String columVal = results.getString(i);
                     System.out.print(columVal + " ");
