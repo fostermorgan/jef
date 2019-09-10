@@ -43,6 +43,8 @@ public class UserDAO extends FinancialDAO{
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM " + table + " WHERE (email=?)");
             statement.setString(1, email);
             results = statement.executeQuery();
+            if(results.next() == false)
+                return null; //Empty result set, no user found with email
             return new User(results.getInt("userID"), results.getString("email"), results.getString("password"), results.getString("role"));
 
         } catch (SQLException e) {

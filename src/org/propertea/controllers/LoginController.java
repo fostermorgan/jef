@@ -35,7 +35,7 @@ public class LoginController{
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User emailUser = null;//userDAO.findUserByEmail(email);
+        User emailUser = userDAO.findUserByEmail(email);
         if(emailUser == null){
             //SOMETHING
             mav.addObject("message", "User doesn't exist with email");
