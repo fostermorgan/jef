@@ -18,14 +18,14 @@
 </head>
 <body class="text-center">
 <%--    <h1>Simple Java Web App Demo</h1>--%>
-<form class="form-signin card" method="POST"><%-- change action to /login to properly call org.propertea.controller --%>
+<form class="form-signin card" method="POST" action="${pageContext.request.contextPath}/login/loginVerification"><%-- change action to /login to properly call org.propertea.controller --%>
   <img class="mb-4" src="http://clipart-library.com/data_images/192266.gif" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Proper.Tea Portal</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
   <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-  <div id="errormessage" class="alert alert-warning hide" role="alert" onclick="loginErrorHandler()"/>
+  <div id="errormessage" class="alert alert-warning hide" role="alert"/>
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me (we won't actually remember you)
