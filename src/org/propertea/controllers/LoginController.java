@@ -42,18 +42,23 @@ public class LoginController{
             return mav;
         }
         if(password.equals(emailUser.getPassword())) {
+            mav.setViewName("dashboard");
+            mav.addObject("user", emailUser.getEmail());
+            return mav;
             //SUCCESS
-            request.setAttribute("currentEmail", email); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
-            request.getRequestDispatcher("/dashboard.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
+//            request.setAttribute("currentEmail", email); //with setAttribute() you can define a "key" and value pair so that you can get it in future using getAttribute("key")
+//            request.getRequestDispatcher("/dashboard.jsp").forward(request, response);//RequestDispatcher is used to send the control to the invoked page.
 
         } else{
+
             String errormessage;
             if(email.equalsIgnoreCase(emailUser.getEmail()))
                 errormessage = "wrong password";
             else
                 errormessage = "user doesn't exist with email";
-            request.setAttribute("errMessage", errormessage); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
-            request.getRequestDispatcher("/index.jsp").forward(request, response);//forwarding the request
+            mav.addObject("message", errormessage);
+//            request.setAttribute("errMessage", errormessage); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+//            request.getRequestDispatcher("/index.jsp").forward(request, response);//forwarding the request
         }
         return mav;
     }
