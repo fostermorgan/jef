@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="${pageContext.request.contextPath}/resources/signin.css" rel="stylesheet">
+
 </head>
 <body class="text-center">
 <%--    <h1>Simple Java Web App Demo</h1>--%>
@@ -25,7 +26,7 @@
   <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-  <div id="errormessage" class="alert alert-warning hide" role="alert"/>
+  <div id="errormessage" class="alert alert-warning hide" role="alert">${message}</div>
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me (we won't actually remember you)

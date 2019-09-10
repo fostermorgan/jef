@@ -26,19 +26,20 @@ public class LoginController{
     }
 
     @RequestMapping(value="/loginVerification", method = RequestMethod.POST)
-    public String loginVerification(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public ModelAndView loginVerification(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Im here");
         //changed return to void...I don't think this login controller doesn't need its own mav?
-        ModelAndView mav = new ModelAndView("login");
+        ModelAndView mav = new ModelAndView("index");
         //find user from given email on login and store it into toFind
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User emailUser = userDAO.findUserByEmail(email);
+        User emailUser = null;//userDAO.findUserByEmail(email);
         if(emailUser == null){
             //SOMETHING
-            return "User doesn't exist with email";
+            mav.addObject("message", "User doesn't exist with email");
+            return mav;
         }
         if(password.equals(emailUser.getPassword())) {
             //SUCCESS
@@ -54,7 +55,7 @@ public class LoginController{
             request.setAttribute("errMessage", errormessage); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
             request.getRequestDispatcher("/index.jsp").forward(request, response);//forwarding the request
         }
-        return null;
+        return mav;
     }
 
 }
